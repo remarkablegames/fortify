@@ -2,7 +2,11 @@
   "name": "fortify",
   "version": "0.0.0",
   "description": "A template for building Phaser games.",
-  "authors": "Mark <mark@remarkablemark.org>",
+  "contributors": [
+    "Ben Budnevich <ben.bj32001@gmail.com>",
+    "Dan Phillips <danmakenoise@gmail.com>",
+    "Mark <mark@remarkablemark.org>"
+  ],
   "scripts": {
     "build": "node scripts/build",
     "clean": "rm -rf build",

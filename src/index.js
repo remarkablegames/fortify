@@ -10,7 +10,7 @@ registerServiceWorker();
 const config = {
   width: 800,
   height: 600,
-  title: 'Phaser Template',
+  title: 'Fortify',
   // the following two values are exposed from `package.json`
   url: process.env.HOMEPAGE,
   version: process.env.VERSION,

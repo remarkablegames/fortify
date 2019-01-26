@@ -1,8 +1,8 @@
 {
-  "name": "phaser-template",
+  "name": "fortify",
   "version": "0.0.0",
   "description": "A template for building Phaser games.",
-  "author": "Mark <mark@remarkablemark.org>",
+  "authors": "Mark <mark@remarkablemark.org>",
   "scripts": {
     "build": "node scripts/build",
     "clean": "rm -rf build",
@@ -12,13 +12,13 @@
     "release": "standard-version --no-verify",
     "start": "node scripts/start"
   },
-  "homepage": "https://remarkablegames.org/phaser-template/",
+  "homepage": "https://remarkablegames.org/fortify/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/remarkablegames/phaser-template"
+    "url": "https://github.com/remarkablegames/fortify"
   },
   "bugs": {
-    "url": "https://github.com/remarkablegames/phaser-template/issues"
+    "url": "https://github.com/remarkablegames/fortify/issues"
   },
   "devDependencies": {
     "@commitlint/cli": "7.3.2",

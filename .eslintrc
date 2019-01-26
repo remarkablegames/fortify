@@ -1,0 +1,24 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "plugins": ["babel", "prettier"],
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "no-cond-assign": "error",
+    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    "prettier/prettier": "error",
+    "quotes": ["error", "single"],
+    "sort-imports": "error"
+  }
+}

@@ -8,13 +8,20 @@ export default class Boot extends Scene {
 
   preload() {
     const { load } = this;
-    load.image(TEXTURES.GROUND, require('../assets/platform.png'));
-    load.image(TEXTURES.SKY, require('../assets/sky.png'));
+
+    // Load sprite sheet generated with TexturePacker
+    this.load.atlas(
+      'sheet',
+      require('../assets/fruit-sprites.png'),
+      require('../assets/fruit-sprites.json')
+    );
+
+    // Load body shapes from JSON file generated using PhysicsEditor
+    this.load.json('shapes', require('../assets/fruit-shapes.json'));
+
+    load.image(TEXTURES.BEAR, require('../assets/bear.png'));
+    load.image(TEXTURES.PLATFORM, require('../assets/platform.png'));
     load.image(TEXTURES.STAR, require('../assets/star.png'));
-    load.spritesheet(TEXTURES.DUDE, require('../assets/dude.png'), {
-      frameWidth: 32,
-      frameHeight: 48,
-    });
   }
 
   create() {

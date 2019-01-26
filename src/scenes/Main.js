@@ -1,85 +1,74 @@
-import { Player, Star } from '../sprites';
-import { SCENES, TEXTURES } from '../constants';
+import { Player, Block } from '../sprites';
+import { FRAMES, SCENES, SHEET, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
 import { Score } from '../texts';
+
+const DEGREES = {
+  '90': Math.PI / 2,
+};
 
 export default class Main extends Scene {
   constructor() {
     super({ key: SCENES.MAIN });
+    this.Mark = null;
   }
 
   create() {
-    const {
-      game: {
-        config: { height },
-      },
-      physics,
-    } = this;
+    const shapes = this.cache.json.get('shapes');
+    this.shapes = shapes;
 
-    // A simple background for our game.
-    this.add.image(0, 0, TEXTURES.SKY).setOrigin(0);
+    this.matter.world.setBounds(
+      0,
+      0,
+      this.game.config.width,
+      this.game.config.height
+    );
+    this.add.image(0, 0, 'sheet', 'background').setOrigin(0, 0);
 
-    // The platforms group contains the ground and the 2 ledges we can jump on.
-    // It's created after the background so the order of layers (z-depth) is
-    // maintained (otherwise, the platforms will be hidden by the background).
-    const platforms = physics.add.staticGroup({
-      defaultKey: TEXTURES.GROUND,
+    // this.matter.add.sprite(200, 50, TEXTURES.SHEET, FRAMES.CRATE, { shape: shapes[FRAMES.CRATE] });
+    // this.matter.add.sprite(250, 250, TEXTURES.SHEET, FRAMES.BANANA, {
+    //  shape: shapes[FRAMES.BANANA],
+    // });
+    // this.matter.add.sprite(360, 50, TEXTURES.SHEET, FRAMES.ORANGE, {
+    //  shape: shapes[FRAMES.ORANGE],
+    // });
+    // this.matter.add.sprite(400, 250, TEXTURES.SHEET, FRAMES.CHERRIES, {
+    //  shape: shapes[FRAMES.CHERRIES],
+    // });
+
+    this.Mark = this.matter.add.sprite(200, 200, TEXTURES.BEAR, { isStatic: true })
+
+    this.input.on(
+      'pointerdown',
+      pointer => {
+        new Block(this.matter.world, pointer.x, pointer.y, TEXTURES.CRATE, 'sheet');
+      }, this
+    );
+    
+    this.time.addEvent({
+      delay: 1000,
+      callback: this.launchBall,
+      callbackScope: this,
     });
+  }
 
-    // Create the ground (scale it to fit the widt of the game and scale it to
-    // fit the width of the game). The original sprite is 400x32 in size.
-    platforms
-      .get(0, height - 64)
-      .setOrigin(0)
-      .setScale(2)
-      .refreshBody();
-
-    // Now let's create three ledges.
-    [[600, 400], [50, 250], [750, 220]].forEach(coordinates => {
-      platforms.get(...coordinates);
+  launchBall() {
+    const ball = this.matter.add.sprite(0, 0, TEXTURES.SHEET, FRAMES.ORANGE, {
+     shape: this.shapes.orange,
     });
-
-    // Create stars group.
-    const stars = physics.add.group({
-      classType: Star,
-    });
-
-    // Here we'll create 12 of them evenly spaced apart.
-    for (let i = 0; i < 12; i++) {
-      stars.get(i * 70, 0).init();
+    ball.setMass(30);
+    ball.setVelocity(4, -2);
+    ball.setBounce(1);
+    ball.setFriction(0, 0, 0);
+    ball.setFrictionAir(0.005);
+  }
+  
+  update() {
+    if (
+      this.Mark.body.angle >= DEGREES['90'] ||
+      this.Mark.body.angle <= -(DEGREES['90'])
+    ) {
+      this.scene.start(SCENES.GAME_OVER);
     }
-
-    // Collide the star with the platform or else the star will fall through.
-    physics.add.collider(stars, platforms);
-
-    // Create player.
-    const player = new Player(this, 32, height - 150).init();
-    this.player = player;
-
-    // Collide the player with the platform or else the player will fall through.
-    physics.add.collider(player, platforms);
-
-    // Check for overlap between the player and the star.
-    physics.add.overlap(player, stars, this.collectStar, null, this);
-
-    // Display score.
-    this.score = 0;
-    this.scoreText = new Score(this, 16, 16, this.score, {
-      fill: 'white',
-      font: '32px "Lucida Grande", Helvetica, Arial, sans-serif',
-    });
-  }
-
-  collectStar(player, star) {
-    // Make the star inactive and invisible.
-    star.disableBody(true, true);
-
-    // Add to the score and update the text.
-    this.score += 10;
-    this.scoreText.setScore(this.score);
-  }
-
-  update(time, delta) {
-    this.player.update();
   }
 }

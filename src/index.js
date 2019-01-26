@@ -1,5 +1,5 @@
 import './index.css';
-import { Boot, Main } from './scenes';
+import { Boot, GameOver, Main } from './scenes';
 import Phaser from 'phaser';
 import registerServiceWorker from './registerServiceWorker';
 registerServiceWorker();
@@ -8,17 +8,16 @@ registerServiceWorker();
  * @see {@link https://photonstorm.github.io/phaser3-docs/global.html#GameConfig}
  */
 const config = {
-  width: 800,
-  height: 600,
+  width: 600,
+  height: 800,
   title: 'Fortify',
   // the following two values are exposed from `package.json`
   url: process.env.HOMEPAGE,
   version: process.env.VERSION,
-  scene: [Boot, Main],
+  scene: [Boot, GameOver, Main],
   physics: {
-    default: 'arcade',
-    arcade: {
-      gravity: { y: 300 },
+    default: 'matter',
+    matter: {
       debug: process.env.NODE_ENV === 'development',
     },
   },

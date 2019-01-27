@@ -1,4 +1,4 @@
-import { COLORS, FONTS, SCENES, SIZES } from '../constants';
+import { COLORS, FONTS, FRAMES, SCENES, SIZES, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
 
 export default class Win extends Scene {
@@ -7,17 +7,25 @@ export default class Win extends Scene {
   }
 
   create() {
-    this.add.text(100, 200, 'YOU SAVED TEDDY =)', {
-      color: COLORS.WIN,
-      fontFamily: FONTS.DEFAULT,
-      fontSize: SIZES.MEDIUM,
-    });
+    const centerX = this.game.config.width / 2;
 
-    this.add.text(100, 400, 'TRY AGAIN?', {
-      color: COLORS.WIN,
-      fontFamily: FONTS.DEFAULT,
-      fontSize: SIZES.MEDIUM,
-    });
+    this.add
+      .text(centerX, 200, 'You saved teddy =)', {
+        color: COLORS.WIN,
+        fontFamily: FONTS.DEFAULT,
+        fontSize: SIZES.MEDIUM,
+      })
+      .setOrigin(0.5);
+
+    this.add.image(centerX, 300, TEXTURES.SHEET, FRAMES.BEAR);
+
+    this.add
+      .text(centerX, 400, 'Click to try again', {
+        color: COLORS.WIN,
+        fontFamily: FONTS.DEFAULT,
+        fontSize: SIZES.MEDIUM,
+      })
+      .setOrigin(0.5);
 
     this.input.once('pointerdown', this.tryAgain, this);
   }

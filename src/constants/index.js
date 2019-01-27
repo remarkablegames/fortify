@@ -1,7 +1,7 @@
 export const COLORS = {
   DEFAULT: '#ffffff',
-  LOSE: '#f3534f',
-  WIN: '#ffffff',
+  LOSE: '#f2704c',
+  WIN: '#fab142',
 };
 
 export const FONTS = {

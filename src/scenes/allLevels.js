@@ -9,6 +9,12 @@ const ALL_LEVELS_CONFIG = [
   {
     cratesAllowed: 3,
   },
+  {
+    cratesAllowed: 4,
+  },
+  {
+    cratesAllowed: 5,
+  },
 ];
 
 export default ALL_LEVELS_CONFIG.map((levelConfig, index) =>

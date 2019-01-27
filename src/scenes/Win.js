@@ -2,8 +2,12 @@ import { COLORS, FONTS, FRAMES, SCENES, SIZES, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
 
 export default class Win extends Scene {
-  constructor() {
+  constructor(args) {
     super({ key: SCENES.WIN });
+  }
+
+  init({ nextLevelKey }) {
+    this.nextLevelKey = nextLevelKey;
   }
 
   create() {
@@ -20,7 +24,7 @@ export default class Win extends Scene {
     this.add.image(centerX, 300, TEXTURES.SHEET, FRAMES.BEAR);
 
     this.add
-      .text(centerX, 400, 'Click to try again', {
+      .text(centerX, 400, 'Click to continue', {
         color: COLORS.WIN,
         fontFamily: FONTS.DEFAULT,
         fontSize: SIZES.MEDIUM,
@@ -31,6 +35,6 @@ export default class Win extends Scene {
   }
 
   tryAgain() {
-    this.scene.start(SCENES.MAIN);
+    this.scene.start(this.nextLevelKey);
   }
 }

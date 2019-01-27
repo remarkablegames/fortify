@@ -18,7 +18,6 @@ export default function createLevel(levelConfig) {
       this.cratesAllowed = levelConfig.cratesAllowed;
       this.cratesPlaced = 0;
       this.hasBallLaunched = false;
-      this.nextLevelKey = levelConfig.nextLevelKey;
       this.shapes = this.cache.json.get('shapes');
       this.vip = null;
     }
@@ -73,10 +72,10 @@ export default function createLevel(levelConfig) {
         'collisionstart',
         (event, bodyA, bodyB) => {
           if (bodyA && bodyA.gameObject && bodyA.gameObject.onCollision) {
-            bodyA.gameObject.onCollision(bodyB);
+            bodyA.gameObject.onCollision(bodyB, levelConfig.key);
           }
           if (bodyB && bodyB.gameObject && bodyB.gameObject.onCollision) {
-            bodyB.gameObject.onCollision(bodyA);
+            bodyB.gameObject.onCollision(bodyA, levelConfig.key);
           }
         },
         this
@@ -109,7 +108,9 @@ export default function createLevel(levelConfig) {
     update(time, delta) {
       const vipAngle = this.vip.body.angle;
       if (vipAngle >= NINETY_DEGREES || vipAngle <= -NINETY_DEGREES) {
-        this.scene.start(SCENES.GAME_OVER);
+        this.scene.start(SCENES.GAME_OVER, {
+          currentLevelKey: levelConfig.key,
+        });
         return;
       }
 
@@ -121,7 +122,9 @@ export default function createLevel(levelConfig) {
         const isResting = motion < 0.1;
 
         if (isResting) {
-          this.scene.start(SCENES.WIN);
+          this.scene.start(SCENES.WIN, {
+            nextLevelKey: levelConfig.nextLevelKey,
+          });
           return;
         }
       }

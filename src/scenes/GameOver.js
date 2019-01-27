@@ -6,6 +6,10 @@ export default class GameOver extends Scene {
     super({ key: SCENES.GAME_OVER });
   }
 
+  init({ currentLevelKey }) {
+    this.currentLevelKey = currentLevelKey;
+  }
+
   create() {
     const centerX = this.game.config.width / 2;
 
@@ -31,6 +35,6 @@ export default class GameOver extends Scene {
   }
 
   tryAgain() {
-    this.scene.start(SCENES.MAIN);
+    this.scene.start(this.currentLevelKey);
   }
 }

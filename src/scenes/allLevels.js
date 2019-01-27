@@ -15,5 +15,6 @@ export default ALL_LEVELS_CONFIG.map((levelConfig, index) =>
   createLevel({
     ...levelConfig,
     key: generateLevelKey(index),
+    nextLevelKey: generateLevelKey((index + 1) % ALL_LEVELS_CONFIG.length),
   })
 );

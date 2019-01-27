@@ -8,9 +8,14 @@ export default class Boot extends Scene {
 
   init() {
     this.resize();
+    window.addEventListener('resize', this.resize);
   }
 
-  resize() {
+  destroy() {
+    window.removeEventListener('resize', this.resize);
+  }
+
+  resize = () => {
     const { canvas } = this.game;
     const width =
       window.innerWidth > 0 ? window.innerWidth : window.screen.width;
@@ -26,7 +31,7 @@ export default class Boot extends Scene {
       canvas.style.width = height * ratio + 'px';
       canvas.style.height = height + 'px';
     }
-  }
+  };
 
   preload() {
     const { load } = this;

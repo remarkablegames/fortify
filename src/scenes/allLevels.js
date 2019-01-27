@@ -9,17 +9,17 @@ const ALL_LEVELS_CONFIG = [
   {
     cratesAllowed: 3,
     totalBalls: 1,
-    ballSpeed: 40,
+    ballSpeed: 80,
   },
   {
     cratesAllowed: 4,
     totalBalls: 2,
-    ballSpeed: 50,
+    ballSpeed: 70,
   },
   {
     cratesAllowed: 5,
     totalBalls: 3,
-    ballSpeed: 70,
+    ballSpeed: 60,
   },
 ];
 

@@ -1,5 +1,6 @@
 import { FRAMES, SCENES, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
+import { generateLevelKey } from './allLevels';
 
 export default class Intro extends Scene {
   constructor() {
@@ -17,6 +18,6 @@ export default class Intro extends Scene {
   }
 
   tryAgain() {
-    this.scene.start(SCENES.MAIN);
+    this.scene.start(generateLevelKey());
   }
 }

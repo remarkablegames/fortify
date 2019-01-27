@@ -90,22 +90,22 @@ export default function createLevel(levelConfig) {
     }
 
     launchBall() {
+      const ballX = Math.Between(0, this.game.config.width - 200);
+      const ballY = -200;
       const ball = this.matter.add.sprite(
-        0,
-        0,
+        ballX,
+        ballY,
         TEXTURES.SHEET,
         FRAMES.SOCCERBALL,
         {
           shape: this.shapes[FRAMES.SOCCERBALL],
         }
       );
-      ball.setPosition(
-        Math.Between(0, this.game.config.width - ball.width),
-        -ball.height
-      );
+      const vipDeltaX = (this.vip.x - ballX) * (1 / levelConfig.ballSpeed);
+      const vipDeltaY = (this.vip.y - ballY) * (1 / levelConfig.ballSpeed);
       ball.setScale(0.5);
       ball.setMass(30);
-      ball.setVelocity(6, -2);
+      ball.setVelocity(vipDeltaX, vipDeltaY);
       ball.setBounce(1);
       ball.setFriction(0, 0, 0);
       ball.setFrictionAir(0.005);

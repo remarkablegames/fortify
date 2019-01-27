@@ -5,6 +5,7 @@ import { Math, Scene } from 'phaser';
 const NINETY_DEGREES = Math.DegToRad(90);
 
 const cratesLeftTextTemplate = count => `Pillows: ${count}`;
+const levelNumberTextTemplate = number => `Level ${number}`;
 
 export default function createLevel(levelConfig) {
   return class Level extends Scene {
@@ -52,6 +53,12 @@ export default function createLevel(levelConfig) {
           fontSize: SIZES.LARGE,
         }
       );
+
+      this.add.text(425, 25, levelNumberTextTemplate(levelConfig.number), {
+        color: COLORS.DEFAULT,
+        fontFamily: FONTS.DEFAULT,
+        fontSize: SIZES.LARGE,
+      });
 
       this.input.on(
         'pointerdown',

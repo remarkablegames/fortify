@@ -13,11 +13,14 @@ export const FRAMES = {
   BEAR: 'bear',
   PILLOW: 'pillow',
   SOCCERBALL: 'soccerball',
+  START_BUTTON: 'start-button',
+  TITLE: 'title',
 };
 
 export const SCENES = {
   BOOT: 'BOOT',
   GAME_OVER: 'GAME_OVER',
+  INTRO: 'INTRO',
   MAIN: 'MAIN',
   WIN: 'WIN',
 };

@@ -12,7 +12,7 @@ export default class Main extends Scene {
   }
 
   init() {
-    this.Mark = null;
+    this.vip = null;
     this.hasBallLaunched = false;
     this.cratesAllowed = 3;
     this.cratesPlaced = 0;
@@ -35,9 +35,9 @@ export default class Main extends Scene {
       true
     );
 
-    this.add.image(0, 0, 'sheet', FRAMES.BACKGROUND).setOrigin(0, 0);
+    this.add.image(0, 0, TEXTURES.SHEET, FRAMES.BACKGROUND).setOrigin(0, 0);
 
-    this.Mark = new Vip(world, 200, 750);
+    this.vip = new Vip(world, 200, 750);
 
     this.cratesLeftText = this.add.text(
       25,
@@ -103,7 +103,7 @@ export default class Main extends Scene {
   }
 
   update(time, delta) {
-    const vipAngle = this.Mark.body.angle;
+    const vipAngle = this.vip.body.angle;
     if (vipAngle >= NINETY_DEGREES || vipAngle <= -NINETY_DEGREES) {
       this.scene.start(SCENES.GAME_OVER);
       return;

@@ -4,7 +4,7 @@ import { Math, Scene } from 'phaser';
 
 const NINETY_DEGREES = Math.DegToRad(90);
 
-const cratesLeftTextTemplate = count => `Crates: ${count}`;
+const cratesLeftTextTemplate = count => `Pillows: ${count}`;
 
 export default class Main extends Scene {
   constructor() {
@@ -23,15 +23,25 @@ export default class Main extends Scene {
     const { world } = this.matter;
 
     /** @see {@link https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.World.html} */
-    world.setBounds(0, 0, this.game.config.width, this.game.config.height - 90);
+    world.setBounds(
+      0,
+      0,
+      this.game.config.width,
+      this.game.config.height - 90,
+      128,
+      true,
+      true,
+      false,
+      true
+    );
 
     this.add.image(0, 0, 'sheet', FRAMES.BACKGROUND).setOrigin(0, 0);
 
     this.Mark = new Vip(world, 200, 750);
 
     this.cratesLeftText = this.add.text(
-      20,
-      20,
+      25,
+      25,
       cratesLeftTextTemplate(this.cratesAllowed - this.cratesPlaced),
       {
         color: COLORS.DEFAULT,
@@ -70,7 +80,7 @@ export default class Main extends Scene {
   }
 
   launchBall() {
-    this.ball = this.matter.add.sprite(
+    const ball = this.matter.add.sprite(
       0,
       0,
       TEXTURES.SHEET,
@@ -79,12 +89,17 @@ export default class Main extends Scene {
         shape: this.shapes[FRAMES.SOCCERBALL],
       }
     );
-    this.ball.setScale(0.5);
-    this.ball.setMass(30);
-    this.ball.setVelocity(4, -2);
-    this.ball.setBounce(1);
-    this.ball.setFriction(0, 0, 0);
-    this.ball.setFrictionAir(0.005);
+    ball.setPosition(
+      Math.Between(0, this.game.config.width - ball.width),
+      -ball.height
+    );
+    ball.setScale(0.5);
+    ball.setMass(30);
+    ball.setVelocity(6, -2);
+    ball.setBounce(1);
+    ball.setFriction(0, 0, 0);
+    ball.setFrictionAir(0.005);
+    this.ball = ball;
   }
 
   update(time, delta) {

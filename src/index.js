@@ -11,7 +11,6 @@ const config = {
   width: 600,
   height: 800,
   title: 'Fortify',
-  // the following two values are exposed from `package.json`
   url: process.env.HOMEPAGE,
   version: process.env.VERSION,
   scene: [Boot, GameOver, Main],

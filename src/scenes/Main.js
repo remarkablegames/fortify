@@ -23,7 +23,7 @@ export default class Main extends Scene {
       this.game.config.width,
       this.game.config.height
     );
-    this.add.image(0, 0, 'sheet', 'background').setOrigin(0, 0);
+    this.add.image(0, 0, TEXTURES.LIVING_ROOM).setOrigin(0, 0);
 
     // this.matter.add.sprite(200, 50, TEXTURES.SHEET, FRAMES.CRATE, { shape: shapes[FRAMES.CRATE] });
     // this.matter.add.sprite(250, 250, TEXTURES.SHEET, FRAMES.BANANA, {

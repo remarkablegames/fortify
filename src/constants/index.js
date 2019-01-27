@@ -5,6 +5,7 @@ export const SCENES = {
 };
 
 export const FRAMES = {
+  BACKGROUND: 'background',
   BANANA: 'banana',
   CHERRIES: 'cherries',
   CRATE: 'crate',
@@ -12,16 +13,13 @@ export const FRAMES = {
 };
 
 export const TEXTURES = {
-  BANANA: 'banana',
   BEAR: 'bear',
   BLOCK: 'block',
-  CHERRIES: 'cherries',
-  CRATE: 'crate',
   DUDE: 'dude',
-  ORANGE: 'orange',
   PLATFORM: 'platform',
   SHEET: 'sheet',
   STAR: 'star',
+  LIVING_ROOM: 'living-room',
 };
 
 export default {

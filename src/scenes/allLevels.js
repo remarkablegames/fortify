@@ -8,12 +8,15 @@ export function generateLevelKey(index = 0) {
 const ALL_LEVELS_CONFIG = [
   {
     cratesAllowed: 3,
+    totalBalls: 1,
   },
   {
     cratesAllowed: 4,
+    totalBalls: 2,
   },
   {
     cratesAllowed: 5,
+    totalBalls: 2,
   },
 ];
 

@@ -15,9 +15,9 @@ export default function createLevel(levelConfig) {
     }
 
     init() {
+      this.balls = [];
       this.cratesAllowed = levelConfig.cratesAllowed;
       this.cratesPlaced = 0;
-      this.hasBallLaunched = false;
       this.shapes = this.cache.json.get('shapes');
       this.vip = null;
     }
@@ -102,7 +102,7 @@ export default function createLevel(levelConfig) {
       ball.setBounce(1);
       ball.setFriction(0, 0, 0);
       ball.setFrictionAir(0.005);
-      this.ball = ball;
+      this.balls = [...this.balls, ball];
     }
 
     update(time, delta) {
@@ -114,23 +114,36 @@ export default function createLevel(levelConfig) {
         return;
       }
 
-      if (this.ball && this.ball.body) {
-        const motion =
-          this.ball.body.speed * this.ball.body.speed +
-          this.ball.body.angularSpeed * this.ball.body.angularSpeed;
+      const areAllBallsResting =
+        this.balls.length === levelConfig.totalBalls &&
+        this.balls.reduce((areAllBallsResting, ball) => {
+          if (!areAllBallsResting) return false;
 
-        const isResting = motion < 0.1;
+          if (ball && ball.body) {
+            const motion =
+              ball.body.speed * ball.body.speed +
+              ball.body.angularSpeed * ball.body.angularSpeed;
 
-        if (isResting) {
-          this.scene.start(SCENES.WIN, {
-            nextLevelKey: levelConfig.nextLevelKey,
-          });
-          return;
-        }
+            const isResting = motion < 0.1;
+
+            if (isResting) {
+              return true;
+            }
+          }
+
+          return false;
+        }, true);
+
+      if (areAllBallsResting) {
+        this.scene.start(SCENES.WIN, {
+          nextLevelKey: levelConfig.nextLevelKey,
+        });
       }
 
-      if (!this.hasBallLaunched && this.cratesPlaced === this.cratesAllowed) {
-        this.hasBallLaunched = true;
+      if (
+        this.balls.length !== levelConfig.totalBalls &&
+        this.cratesPlaced === this.cratesAllowed
+      ) {
         this.launchBall();
       }
     }

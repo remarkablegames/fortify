@@ -1,7 +1,6 @@
-import { Block, Player, Vip } from '../sprites';
-import { FRAMES, SCENES, SHEET, TEXTURES } from '../constants';
+import { Block, Vip } from '../sprites';
+import { FRAMES, SCENES, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
-import { Score } from '../texts';
 
 const DEGREES = {
   '90': Math.PI / 2,

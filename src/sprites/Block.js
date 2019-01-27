@@ -1,5 +1,5 @@
-import { Physics } from 'phaser';
 import { FRAMES, TEXTURES } from '../constants';
+import { Physics } from 'phaser';
 
 export default class Block extends Physics.Matter.Sprite {
   constructor(world, x, y, texture, frame, options) {

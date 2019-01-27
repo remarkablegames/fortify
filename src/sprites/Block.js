@@ -3,8 +3,8 @@ import { Physics } from 'phaser';
 
 export default class Block extends Physics.Matter.Sprite {
   constructor(world, x, y, texture, frame, options) {
-    super(world, x, y, TEXTURES.SHEET, FRAMES.CRATE, {
-      shape: world.scene.cache.json.get('shapes')[FRAMES.CRATE],
+    super(world, x, y, TEXTURES.SHEET, FRAMES.PILLOW, {
+      shape: world.scene.cache.json.get('shapes')[FRAMES.PILLOW],
     });
     world.scene.add.existing(this);
   }

@@ -28,11 +28,11 @@ export default class Main extends Scene {
       0,
       0,
       this.game.config.width,
-      this.game.config.height
+      this.game.config.height - 90,
     );
-    this.add.image(0, 0, TEXTURES.LIVING_ROOM).setOrigin(0, 0);
 
     this.Mark = new Vip(this.matter.world, 200, 750);
+    this.add.image(0, 0, 'sheet', FRAMES.BACKGROUND).setOrigin(0, 0);
 
     this.cratesLeftText = this.add.text(
       20,

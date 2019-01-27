@@ -1,0 +1,116 @@
+{
+	"generator_info": "Shape definitions generated with PhysicsEditor. Visit https://www.codeandweb.com/physicseditor",
+	"soccerball": {
+		"type": "fromPhysicsEditor",
+		"label": "soccerball",
+		"isStatic": false,
+		"density": 0.10000000149011612,
+		"restitution": 0,
+		"friction": 0.10000000149011612,
+		"frictionAir": 0.009999999776482582,
+		"frictionStatic": 0.5,
+		"collisionFilter": {
+			"group": 0,
+			"category": 1,
+			"mask": 255
+		},
+		"fixtures": [
+			{
+				"label": "soccerball-fixture",
+				"isSensor": false,
+				"circle": {
+					"x": 100,
+					"y": 98,
+					"radius": 99.32774033471213
+				}
+			}
+		]
+	},
+	"pillow": {
+		"type": "fromPhysicsEditor",
+		"label": "pillow",
+		"isStatic": false,
+		"density": 0.10000000149011612,
+		"restitution": 0,
+		"friction": 0.10000000149011612,
+		"frictionAir": 0.009999999776482582,
+		"frictionStatic": 0.5,
+		"collisionFilter": {
+			"group": 0,
+			"category": 1,
+			"mask": 255
+		},
+		"fixtures": [
+			{
+				"label": "pillow-fixture",
+				"isSensor": false,
+				"vertices": [
+					[ { "x":111, "y":108.5 }, { "x":118, "y":108.5 }, { "x":122.5, "y":105 }, { "x":122.5, "y":95 }, { "x":120.5, "y":93 }, { "x":106, "y":103.5 } ],
+					[ { "x":112, "y":6.5 }, { "x":107, "y":10.5 }, { "x":120.5, "y":23 }, { "x":122.5, "y":20 }, { "x":122.5, "y":11 }, { "x":121, "y":8.5 }, { "x":118, "y":6.5 } ],
+					[ { "x":-0.5, "y":3 }, { "x":-0.5, "y":13 }, { "x":1.5, "y":15 }, { "x":16, "y":4.5 }, { "x":10, "y":-0.5 }, { "x":4, "y":-0.5 } ],
+					[ { "x":11, "y":101.5 }, { "x":16, "y":97.5 }, { "x":1.5, "y":85 }, { "x":-0.5, "y":88 }, { "x":-0.5, "y":97 }, { "x":2, "y":100.5 } ],
+					[ { "x":1.5, "y":85 }, { "x":16, "y":97.5 }, { "x":30, "y":100.5 }, { "x":49, "y":101.5 }, { "x":64, "y":4.5 }, { "x":1.5, "y":19 }, { "x":-0.5, "y":27 }, { "x":-0.5, "y":74 } ],
+					[ { "x":120.5, "y":23 }, { "x":107, "y":10.5 }, { "x":104, "y":10.5 }, { "x":49, "y":101.5 }, { "x":55, "y":103.5 }, { "x":106, "y":103.5 }, { "x":122.5, "y":81 }, { "x":122.5, "y":34 } ],
+					[ { "x":120.5, "y":93 }, { "x":122.5, "y":81 }, { "x":106, "y":103.5 } ],
+					[ { "x":91, "y":7.5 }, { "x":70, "y":6.5 }, { "x":49, "y":101.5 }, { "x":104, "y":10.5 } ],
+					[ { "x":16, "y":4.5 }, { "x":1.5, "y":15 }, { "x":1.5, "y":19 }, { "x":64, "y":4.5 } ],
+					[ { "x":64, "y":4.5 }, { "x":49, "y":101.5 }, { "x":70, "y":6.5 } ]
+				]
+			}
+		]
+	},
+	"bear": {
+		"type": "fromPhysicsEditor",
+		"label": "bear",
+		"isStatic": false,
+		"density": 0.10000000149011612,
+		"restitution": 0,
+		"friction": 0.10000000149011612,
+		"frictionAir": 0.009999999776482582,
+		"frictionStatic": 0.5,
+		"collisionFilter": {
+			"group": 0,
+			"category": 1,
+			"mask": 255
+		},
+		"fixtures": [
+			{
+				"label": "",
+				"isSensor": false,
+				"vertices": [
+					[ { "x":-0.5, "y":74 }, { "x":19.5, "y":74 }, { "x":61, "y":71.5 }, { "x":16, "y":51.5 } ],
+					[ { "x":64, "y":114.5 }, { "x":68.5, "y":104 }, { "x":61, "y":71.5 }, { "x":19.5, "y":74 }, { "x":42.5, "y":102 } ],
+					[ { "x":68, "y":-0.5 }, { "x":53, "y":5.5 }, { "x":64, "y":48.5 }, { "x":74.5, "y":35 }, { "x":78, "y":6.5 } ],
+					[ { "x":24, "y":117.5 }, { "x":42.5, "y":102 }, { "x":19.5, "y":74 }, { "x":15.5, "y":110 } ],
+					[ { "x":0.5, "y":7 }, { "x":0, "y":19.5 }, { "x":16, "y":51.5 }, { "x":61, "y":71.5 }, { "x":64, "y":48.5 }, { "x":10, "y":-0.5 }, { "x":9, "y":-0.5 } ],
+					[ { "x":53, "y":5.5 }, { "x":10, "y":-0.5 }, { "x":64, "y":48.5 } ],
+					[ { "x":73, "y":76.5 }, { "x":79.5, "y":73 }, { "x":64, "y":48.5 }, { "x":61, "y":71.5 } ]
+				]
+			}
+		]
+	},
+	"kids-room": {
+		"type": "fromPhysicsEditor",
+		"label": "kids-room",
+		"isStatic": false,
+		"density": 0.10000000149011612,
+		"restitution": 0,
+		"friction": 0.10000000149011612,
+		"frictionAir": 0.009999999776482582,
+		"frictionStatic": 0.5,
+		"collisionFilter": {
+			"group": 0,
+			"category": 1,
+			"mask": 255
+		},
+		"fixtures": [
+			{
+				"label": "",
+				"isSensor": false,
+				"vertices": [
+					[ { "x":0, "y":713 }, { "x":602, "y":703 }, { "x":602, "y":0 }, { "x":0, "y":0 } ]
+				]
+			}
+		]
+	}
+}

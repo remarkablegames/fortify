@@ -19,6 +19,7 @@ export const SCENES = {
   BOOT: 'BOOT',
   GAME_OVER: 'GAME_OVER',
   MAIN: 'MAIN',
+  WIN: 'WIN',
 };
 
 export const SIZES = {

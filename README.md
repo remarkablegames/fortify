@@ -54,10 +54,10 @@ Release with [standard-version](https://github.com/conventional-changelog/standa
 
 ```sh
 # with npm
-$ npm run build
+$ npm run release
 
 # or with yarn
-$ yarn build
+$ yarn release
 ```
 
 ## Deploy

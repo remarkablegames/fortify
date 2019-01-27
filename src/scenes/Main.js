@@ -1,10 +1,8 @@
 import { Block, Vip } from '../sprites';
-import { FRAMES, SCENES, TEXTURES } from '../constants';
-import { Scene } from 'phaser';
+import { COLORS, FONTS, FRAMES, SCENES, SIZES, TEXTURES } from '../constants';
+import { Math, Scene } from 'phaser';
 
-const DEGREES = {
-  '90': Math.PI / 2,
-};
+const NINETY_DEGREES = Math.DegToRad(90);
 
 const cratesLeftTextTemplate = count => `Crates: ${count}`;
 
@@ -18,30 +16,27 @@ export default class Main extends Scene {
     this.hasBallLaunched = false;
     this.cratesAllowed = 3;
     this.cratesPlaced = 0;
+    this.shapes = this.cache.json.get('shapes');
   }
 
   create() {
-    const shapes = this.cache.json.get('shapes');
-    this.shapes = shapes;
+    const { world } = this.matter;
 
-    this.matter.world.setBounds(
-      0,
-      0,
-      this.game.config.width,
-      this.game.config.height - 90,
-    );
+    /** @see {@link https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.World.html} */
+    world.setBounds(0, 0, this.game.config.width, this.game.config.height - 90);
 
-    this.Mark = new Vip(this.matter.world, 200, 750);
     this.add.image(0, 0, 'sheet', FRAMES.BACKGROUND).setOrigin(0, 0);
+
+    this.Mark = new Vip(world, 200, 750);
 
     this.cratesLeftText = this.add.text(
       20,
       20,
       cratesLeftTextTemplate(this.cratesAllowed - this.cratesPlaced),
       {
-        fontSize: 64,
-        fontFamily: 'Arial',
-        fill: '#ffffff',
+        color: COLORS.DEFAULT,
+        fontFamily: FONTS.DEFAULT,
+        fontSize: SIZES.LARGE,
       }
     );
 
@@ -49,7 +44,7 @@ export default class Main extends Scene {
       'pointerdown',
       pointer => {
         if (this.cratesPlaced < this.cratesAllowed) {
-          const block = new Block(this.matter.world, pointer.x, pointer.y);
+          const block = new Block(world, pointer.x, pointer.y);
           block.init();
           this.cratesPlaced++;
           this.cratesLeftText.text = cratesLeftTextTemplate(
@@ -59,20 +54,32 @@ export default class Main extends Scene {
       },
       this
     );
-    this.matter.world.on('collisionstart', function(event, bodyA, bodyB) {
-      if (bodyA && bodyA.gameObject && bodyA.gameObject.onCollision) {
-        bodyA.gameObject.onCollision(bodyB);
-      }
-      if (bodyB && bodyB.gameObject && bodyB.gameObject.onCollision) {
-        bodyB.gameObject.onCollision(bodyA);
-      }
-    });
+
+    world.on(
+      'collisionstart',
+      (event, bodyA, bodyB) => {
+        if (bodyA && bodyA.gameObject && bodyA.gameObject.onCollision) {
+          bodyA.gameObject.onCollision(bodyB);
+        }
+        if (bodyB && bodyB.gameObject && bodyB.gameObject.onCollision) {
+          bodyB.gameObject.onCollision(bodyA);
+        }
+      },
+      this
+    );
   }
 
   launchBall() {
-    this.ball = this.matter.add.sprite(0, 0, TEXTURES.SHEET, FRAMES.ORANGE, {
-      shape: this.shapes[FRAMES.ORANGE],
-    });
+    this.ball = this.matter.add.sprite(
+      0,
+      0,
+      TEXTURES.SHEET,
+      FRAMES.SOCCERBALL,
+      {
+        shape: this.shapes[FRAMES.SOCCERBALL],
+      }
+    );
+    this.ball.setScale(0.5);
     this.ball.setMass(30);
     this.ball.setVelocity(4, -2);
     this.ball.setBounce(1);
@@ -81,11 +88,10 @@ export default class Main extends Scene {
   }
 
   update(time, delta) {
-    if (
-      this.Mark.body.angle >= DEGREES['90'] ||
-      this.Mark.body.angle <= -DEGREES['90']
-    ) {
+    const vipAngle = this.Mark.body.angle;
+    if (vipAngle >= NINETY_DEGREES || vipAngle <= -NINETY_DEGREES) {
       this.scene.start(SCENES.GAME_OVER);
+      return;
     }
 
     if (this.ball && this.ball.body) {
@@ -96,13 +102,8 @@ export default class Main extends Scene {
       const isResting = motion < 0.1;
 
       if (isResting) {
-        this.add.text(100, 400, 'DAN RULES. TRY AGAIN?', {
-          color: '#00ff00',
-          fontFamily: 'Arial',
-          fontSize: 48,
-        });
-
-        this.input.once('pointerdown', () => this.scene.start(SCENES.MAIN));
+        this.scene.start(SCENES.WIN);
+        return;
       }
     }
 

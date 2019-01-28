@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.2.0"></a>
-# 0.2.0 (2019-01-27)
+## [0.2.0](https://github.com/remarkablegames/fortify/compare/v0.1.0...v0.2.0) (2019-01-27)
 
 
 ### Bug Fixes
@@ -44,7 +44,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.1.0"></a>
-# 0.1.0 (2019-01-27)
+## [0.1.0](https://github.com/remarkablegames/fortify/tree/v0.1.0) (2019-01-27)
 
 
 ### Bug Fixes

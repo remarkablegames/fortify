@@ -1,12 +1,12 @@
 # fortify
 
-Protect mister teddy bear by the soccer ball by building a fort out of pillows.
+Defend Teddy from soccer balls by constructing a fort of pillows.
 
-This game was built during the 2019 [Global Game Jam (GGJ)](https://globalgamejam.org/) in which the theme was **HOME**.
+This game was built during the 2019 [Global Game Jam (GGJ)](https://globalgamejam.org/) in which the theme was `home`.
 
 The project is scaffolded from [phaser-template](https://github.com/remarkablegames/phaser-template) and hosted on [remarkablegames](https://remarkablegames.org/).
 
-Play [game](https://remarkablegames.org/fortify/).
+Play [game](https://b.remarkabl.org/fortify).
 
 ## Install
 

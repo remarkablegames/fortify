@@ -1,12 +1,18 @@
-# fortify
+<p align="center">
+  <img src="https://raw.githubusercontent.com/remarkablegames/fortify/master/src/assets/bear.png" alt="Teddy bear">
+  <br>
+  <img src="https://raw.githubusercontent.com/remarkablegames/fortify/master/src/assets/title.png" alt="Fortify">
+</p>
 
-Defend Teddy from soccer balls by constructing a fort of pillows.
+[Fortify](https://b.remarkabl.org/fortify) is a puzzle game in which your objective is to defend Teddy :bear:
 
-This game was built during the 2019 [Global Game Jam (GGJ)](https://globalgamejam.org/) in which the theme was `home`.
+This game was developed during the [Global Game Jam 2019 (GGJ)](https://globalgamejam.org/news/theme-global-game-jam-2019-%E2%80%A6) in which the theme was:
 
-The project is scaffolded from [phaser-template](https://github.com/remarkablegames/phaser-template) and hosted on [remarkablegames](https://remarkablegames.org/).
+> **What home means to you**
 
-Play [game](https://b.remarkabl.org/fortify).
+This project was scaffolded from [`phaser-template`](https://github.com/remarkablegames/phaser-template) and hosted on [remarkablegames](https://remarkablegames.org/). Read the [blog post](https://remarkablegames.org/posts/fortify/) to learn more.
+
+<kbd>[Play Game](https://b.remarkabl.org/fortify)</kbd>
 
 ## Install
 

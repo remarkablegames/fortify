@@ -1,6 +1,7 @@
 import './index.css';
 import { Boot, GameOver, Intro, Win, allLevels } from './scenes';
 import Phaser from 'phaser';
+import { addResizeListener } from './helpers/resize';
 import registerServiceWorker from './registerServiceWorker';
 registerServiceWorker();
 
@@ -23,4 +24,5 @@ const config = {
   },
 };
 
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+addResizeListener(game);

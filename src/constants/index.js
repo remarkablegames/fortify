@@ -34,9 +34,7 @@ export const SIZES = {
 export const TEXTURES = {
   BLOCK: 'block',
   DUDE: 'dude',
-  PLATFORM: 'platform',
   SHEET: 'sheet',
-  STAR: 'star',
 };
 
 export default {

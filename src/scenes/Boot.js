@@ -37,17 +37,14 @@ export default class Boot extends Scene {
     const { load } = this;
 
     // Load sprite sheet generated with TexturePacker
-    this.load.atlas(
-      'sheet',
+    load.atlas(
+      TEXTURES.SHEET,
       require('../assets/game-sprites.png'),
       require('../assets/game-sprites.json')
     );
 
     // Load body shapes from JSON file generated using PhysicsEditor
     this.load.json('shapes', require('../assets/game-shapes.json'));
-
-    load.image(TEXTURES.PLATFORM, require('../assets/platform.png'));
-    load.image(TEXTURES.STAR, require('../assets/star.png'));
   }
 
   create() {

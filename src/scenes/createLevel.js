@@ -11,6 +11,10 @@ import {
 import { Math, Scene } from 'phaser';
 
 const NINETY_DEGREES = Math.DegToRad(90);
+const TEXT_MARGIN_LEFT = 25;
+const TEXT_MARGIN_RIGHT = TEXT_MARGIN_LEFT;
+const TEXT_MARGIN_TOP = 25;
+const FLOOR_MARGIN_BOTTOM = 90;
 
 const cratesLeftTextTemplate = count => `Pillows: ${count}`;
 const levelNumberTextTemplate = number => `Level ${number}`;
@@ -32,14 +36,19 @@ export default function createLevel(levelConfig) {
     }
 
     create() {
-      const { world } = this.matter;
+      const {
+        game: {
+          config: { width: gameWidth, height: gameHeight },
+        },
+        matter: { world },
+      } = this;
 
-      /** @see {@link https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.World.html} */
+      /** @see {@link https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.World.html#setBounds} */
       world.setBounds(
         0,
         0,
-        this.game.config.width,
-        this.game.config.height - 90,
+        gameWidth,
+        gameHeight - FLOOR_MARGIN_BOTTOM,
         128,
         true,
         true,
@@ -52,8 +61,8 @@ export default function createLevel(levelConfig) {
       this.vip = new Vip(world, 200, 750);
 
       this.cratesLeftText = this.add.text(
-        25,
-        25,
+        TEXT_MARGIN_LEFT,
+        TEXT_MARGIN_TOP,
         cratesLeftTextTemplate(this.cratesAllowed - this.cratesPlaced),
         {
           color: COLORS.DEFAULT,
@@ -62,11 +71,20 @@ export default function createLevel(levelConfig) {
         }
       );
 
-      this.add.text(425, 25, levelNumberTextTemplate(levelConfig.number), {
-        color: COLORS.DEFAULT,
-        fontFamily: FONTS.DEFAULT,
-        fontSize: SIZES.LARGE,
-      });
+      const levelText = this.add.text(
+        0,
+        0,
+        levelNumberTextTemplate(levelConfig.number),
+        {
+          color: COLORS.DEFAULT,
+          fontFamily: FONTS.DEFAULT,
+          fontSize: SIZES.LARGE,
+        }
+      );
+      levelText.setPosition(
+        gameWidth - levelText.width - TEXT_MARGIN_RIGHT,
+        TEXT_MARGIN_TOP
+      );
 
       this.input.on(
         'pointerdown',

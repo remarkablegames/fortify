@@ -4,6 +4,11 @@ body {
   height: 100%;
 }
 
+body,
+a {
+  color: #fff;
+}
+
 body {
   /* center */
   align-items: center;

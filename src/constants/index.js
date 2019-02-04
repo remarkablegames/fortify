@@ -4,6 +4,10 @@ export const COLORS = {
   WIN: '#fab142',
 };
 
+export const DATA = {
+  SHAPES: 'shapes',
+};
+
 export const FONTS = {
   DEFAULT: 'Arial',
 };
@@ -39,6 +43,7 @@ export const TEXTURES = {
 
 export default {
   COLORS,
+  DATA,
   FONTS,
   FRAMES,
   SCENES,

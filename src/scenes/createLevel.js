@@ -1,5 +1,13 @@
 import { Block, Vip } from '../sprites';
-import { COLORS, FONTS, FRAMES, SCENES, SIZES, TEXTURES } from '../constants';
+import {
+  COLORS,
+  DATA,
+  FONTS,
+  FRAMES,
+  SCENES,
+  SIZES,
+  TEXTURES,
+} from '../constants';
 import { Math, Scene } from 'phaser';
 
 const NINETY_DEGREES = Math.DegToRad(90);
@@ -19,7 +27,7 @@ export default function createLevel(levelConfig) {
       this.balls = [];
       this.cratesAllowed = levelConfig.cratesAllowed;
       this.cratesPlaced = 0;
-      this.shapes = this.cache.json.get('shapes');
+      this.shapes = this.cache.json.get(DATA.SHAPES);
       this.vip = null;
     }
 

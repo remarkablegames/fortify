@@ -6,8 +6,8 @@ export default class Win extends Scene {
     super({ key: SCENES.WIN });
   }
 
-  init({ nextLevelKey }) {
-    this.nextLevelKey = nextLevelKey;
+  init(level) {
+    this.level = level;
   }
 
   create() {
@@ -31,10 +31,10 @@ export default class Win extends Scene {
       })
       .setOrigin(0.5);
 
-    this.input.once('pointerdown', this.tryAgain, this);
+    this.input.once('pointerdown', this.continueGame, this);
   }
 
-  tryAgain() {
-    this.scene.start(this.nextLevelKey);
+  continueGame() {
+    this.scene.start(SCENES.MAIN, this.level + 1);
   }
 }

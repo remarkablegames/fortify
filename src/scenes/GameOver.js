@@ -6,8 +6,8 @@ export default class GameOver extends Scene {
     super({ key: SCENES.GAME_OVER });
   }
 
-  init({ currentLevelKey }) {
-    this.currentLevelKey = currentLevelKey;
+  init(level) {
+    this.level = level;
   }
 
   create() {
@@ -35,6 +35,6 @@ export default class GameOver extends Scene {
   }
 
   tryAgain() {
-    this.scene.start(this.currentLevelKey);
+    this.scene.start(SCENES.MAIN, this.level);
   }
 }

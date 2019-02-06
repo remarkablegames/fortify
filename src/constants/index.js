@@ -25,7 +25,7 @@ export const SCENES = {
   BOOT: 'BOOT',
   GAME_OVER: 'GAME_OVER',
   INTRO: 'INTRO',
-  LEVEL: 'LEVEL',
+  MAIN: 'MAIN',
   WIN: 'WIN',
 };
 

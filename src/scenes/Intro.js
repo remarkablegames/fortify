@@ -1,6 +1,5 @@
 import { FRAMES, SCENES, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
-import { generateLevelKey } from './allLevels';
 
 export default class Intro extends Scene {
   constructor() {
@@ -14,10 +13,10 @@ export default class Intro extends Scene {
     this.add.image(centerX, 401, TEXTURES.SHEET, FRAMES.TITLE);
     this.add.image(centerX, 521, TEXTURES.SHEET, FRAMES.START_BUTTON);
 
-    this.input.once('pointerdown', this.tryAgain, this);
+    this.input.once('pointerdown', this.play, this);
   }
 
-  tryAgain() {
-    this.scene.start(generateLevelKey());
+  play() {
+    this.scene.start(SCENES.MAIN, 1);
   }
 }

@@ -10,9 +10,10 @@ export default class Vip extends Physics.Matter.Sprite {
     world.scene.add.existing(this);
   }
 
-  onCollision(body, currentLevelKey) {
+  onCollision(body) {
     if (body.gameObject !== null) {
-      this.world.scene.scene.start(SCENES.GAME_OVER, { currentLevelKey });
+      const { scene } = this.world;
+      scene.scene.start(SCENES.GAME_OVER, scene.level);
     }
   }
 }

@@ -8,9 +8,9 @@ import {
   SIZES,
   TEXTURES,
 } from '../constants';
-import { Math, Scene } from 'phaser';
+import { Math as PhaserMath, Scene } from 'phaser';
 
-const NINETY_DEGREES = Math.DegToRad(90);
+const NINETY_DEGREES = PhaserMath.DegToRad(90);
 const TEXT_MARGIN_LEFT = 25;
 const TEXT_MARGIN_RIGHT = TEXT_MARGIN_LEFT;
 const TEXT_MARGIN_TOP = 25;
@@ -116,7 +116,7 @@ export default function createLevel(levelConfig) {
     }
 
     launchBall() {
-      const ballX = Math.Between(0, this.game.config.width - 200);
+      const ballX = PhaserMath.Between(0, this.game.config.width - 200);
       const ballY = -200;
       const ball = this.matter.add.sprite(
         ballX,

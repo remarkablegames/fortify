@@ -1,7 +1,7 @@
 import { DATA, FRAMES, SCENES, TEXTURES } from '../constants';
 import { Physics } from 'phaser';
 
-export default class Vip extends Physics.Matter.Sprite {
+export default class Teddy extends Physics.Matter.Sprite {
   constructor(world, x, y, texture, frame, options) {
     super(world, x, y, TEXTURES.SHEET, FRAMES.BEAR, {
       shape: world.scene.cache.json.get(DATA.SHAPES)[FRAMES.BEAR],

@@ -1,4 +1,4 @@
-import { Block, Vip } from '../sprites';
+import { Block, Teddy } from '../sprites';
 import {
   COLORS,
   DATA,
@@ -42,7 +42,7 @@ export default class Main extends Scene {
     this.balls = [];
     this.cratesPlaced = 0;
     this.shapes = this.cache.json.get(DATA.SHAPES);
-    this.vip = null;
+    this.teddy = null;
   }
 
   create() {
@@ -68,7 +68,7 @@ export default class Main extends Scene {
 
     this.add.image(0, 0, TEXTURES.SHEET, FRAMES.BACKGROUND).setOrigin(0, 0);
 
-    this.vip = new Vip(world, 200, 750);
+    this.teddy = new Teddy(world, 200, 750);
 
     this.cratesLeftText = this.add.text(
       TEXT_MARGIN_LEFT,
@@ -132,11 +132,11 @@ export default class Main extends Scene {
         shape: this.shapes[FRAMES.SOCCERBALL],
       }
     );
-    const vipDeltaX = (this.vip.x - ballX) * (1 / this.ballSpeed);
-    const vipDeltaY = (this.vip.y - ballY) * (1 / this.ballSpeed);
+    const teddyDeltaX = (this.teddy.x - ballX) * (1 / this.ballSpeed);
+    const teddyDeltaY = (this.teddy.y - ballY) * (1 / this.ballSpeed);
     ball.setScale(0.5);
     ball.setMass(30);
-    ball.setVelocity(vipDeltaX, vipDeltaY);
+    ball.setVelocity(teddyDeltaX, teddyDeltaY);
     ball.setBounce(1);
     ball.setFriction(0, 0, 0);
     ball.setFrictionAir(0.005);
@@ -144,8 +144,8 @@ export default class Main extends Scene {
   }
 
   update(time, delta) {
-    const vipAngle = this.vip.body.angle;
-    if (vipAngle >= NINETY_DEGREES || vipAngle <= -NINETY_DEGREES) {
+    const teddyAngle = this.teddy.body.angle;
+    if (teddyAngle >= NINETY_DEGREES || teddyAngle <= -NINETY_DEGREES) {
       this.scene.start(SCENES.GAME_OVER, this.level);
       return;
     }

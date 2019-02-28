@@ -1,5 +1,5 @@
 import './index.css';
-import { Boot, GameOver, Intro, Main, Win } from './scenes';
+import { Boot, Intro, Lose, Main, Win } from './scenes';
 import Phaser from 'phaser';
 import { addResizeListener } from './helpers/resize';
 // import registerServiceWorker from './registerServiceWorker';
@@ -15,7 +15,7 @@ const config = {
   title: 'Fortify',
   url: process.env.HOMEPAGE,
   version: process.env.VERSION,
-  scene: [Boot, GameOver, Intro, Main, Win],
+  scene: [Boot, Intro, Lose, Main, Win],
   physics: {
     default: 'matter',
     matter: {

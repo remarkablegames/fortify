@@ -1,7 +1,7 @@
 import { COLORS, FONTS, FRAMES, SCENES, SIZES, TEXTURES } from '../constants';
 import { Scene } from 'phaser';
 
-export default class GameOver extends Scene {
+export default class Lose extends Scene {
   constructor() {
     super({ key: SCENES.GAME_OVER });
   }

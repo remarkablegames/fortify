@@ -1,3 +1,3 @@
 export { default as Player } from './Player';
-export { default as Block } from './Block';
+export { default as Pillow } from './Pillow';
 export { default as Teddy } from './Teddy';

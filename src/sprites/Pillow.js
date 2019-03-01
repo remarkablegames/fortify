@@ -1,7 +1,7 @@
 import { DATA, FRAMES, TEXTURES } from '../constants';
 import { Physics } from 'phaser';
 
-export default class Block extends Physics.Matter.Sprite {
+export default class Pillow extends Physics.Matter.Sprite {
   constructor(world, x, y, texture, frame, options) {
     super(world, x, y, TEXTURES.SHEET, FRAMES.PILLOW, {
       shape: world.scene.cache.json.get(DATA.SHAPES)[FRAMES.PILLOW],

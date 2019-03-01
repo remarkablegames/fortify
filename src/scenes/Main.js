@@ -1,4 +1,3 @@
-import { Block, Teddy } from '../sprites';
 import {
   COLORS,
   DATA,
@@ -9,6 +8,7 @@ import {
   TEXTURES,
 } from '../constants';
 import { Math as PhaserMath, Scene } from 'phaser';
+import { Pillow, Teddy } from '../sprites';
 import levels from '../data/levels';
 
 const NINETY_DEGREES = PhaserMath.DegToRad(90);
@@ -95,8 +95,7 @@ export default class Main extends Scene {
       'pointerdown',
       pointer => {
         if (this.cratesPlaced < this.cratesAllowed) {
-          const block = new Block(world, pointer.x, pointer.y);
-          block.init();
+          new Pillow(world, pointer.x, pointer.y).init();
           this.cratesPlaced++;
           this.cratesLeftText.text = cratesLeftTextTemplate(
             this.cratesAllowed - this.cratesPlaced

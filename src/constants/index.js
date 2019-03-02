@@ -36,8 +36,6 @@ export const SIZES = {
 };
 
 export const TEXTURES = {
-  BLOCK: 'block',
-  DUDE: 'dude',
   SHEET: 'sheet',
 };
 

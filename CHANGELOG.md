@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/remarkablegames/fortify/compare/v0.3.0...v0.4.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* **index:** set text color to white given background-color is black ([7babc65](https://github.com/remarkablegames/fortify/commit/7babc65))
+* **scenes:** ensure texts have consistent margins ([40d0a69](https://github.com/remarkablegames/fortify/commit/40d0a69))
+
+
+### Features
+
+* **index:** comment out registerServiceWorker ([596bc98](https://github.com/remarkablegames/fortify/commit/596bc98))
+* **index:** set body background-color to black ([5ed474c](https://github.com/remarkablegames/fortify/commit/5ed474c))
+* **public:** hide github-corners when window width >=992px ([1814e01](https://github.com/remarkablegames/fortify/commit/1814e01))
+* **public:** update "short_name" to "FTFY" in manifest.json ([1cd2d75](https://github.com/remarkablegames/fortify/commit/1cd2d75))
+* **public:** update meta description, tidy IE comment and noscript ([e629168](https://github.com/remarkablegames/fortify/commit/e629168))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/remarkablegames/fortify/compare/v0.2.1...v0.3.0) (2019-01-28)
 

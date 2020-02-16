@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/remarkablegames/fortify/master/src/assets/bear.png" alt="Teddy bear">
+  <img src="https://raw.githubusercontent.com/remarkablegames/fortify/master/src/assets/bear.png" alt="Teddy">
   <br>
   <img src="https://raw.githubusercontent.com/remarkablegames/fortify/master/src/assets/title.png" alt="Fortify">
 </p>
 
-[Fortify](https://b.remarkabl.org/fortify) is a puzzle game in which your objective is to defend Teddy :bear:
+[Fortify](https://b.remarkabl.org/fortify) is a puzzle game where your objective is to defend teddy :bear:
 
-This game was developed during the [Global Game Jam 2019 (GGJ)](https://globalgamejam.org/news/theme-global-game-jam-2019-%E2%80%A6) given the theme:
+This game was made during the [Global Game Jam 2019 (GGJ)](https://globalgamejam.org/news/theme-global-game-jam-2019-%E2%80%A6). The theme of the jam was:
 
-> **What home means to you**
+> What home means to you
 
-This project was bootstrapped with [`phaser-template`](https://github.com/remarkablegames/phaser-template) and hosted on [remarkablegames](https://remarkablegames.org/). Read the [blog post](https://remarkablegames.org/posts/fortify/) to learn more.
+This project was bootstrapped with [`phaser-template`](https://github.com/remarkablegames/phaser-template) and hosted on [remarkablegames](https://remarkablegames.org/). To learn more, read the following [blog post](https://remarkablegames.org/posts/fortify/).
 
 <kbd>[Play Game](https://b.remarkabl.org/fortify)</kbd>
 
@@ -64,6 +64,25 @@ Bumps the `package.json` using [standard-version](https://github.com/conventiona
 ### `npm run deploy`
 
 Deploys the game to [GitHub Pages](https://pages.github.com/) by force pushing the `build` folder to the remote repository's `gh-pages` branch.
+
+## Uploading the Game
+
+If you're uploading the game to a site, make sure to do the following:
+
+1. Open `package.json` and change the `"homepage"` value to `"."`. This ensures the links are relative. _Optional_: update the game config url in `src/index.js`.
+
+2. _Optional_: remove GitHub Corners from `public/index.html` and `src/index.css`.
+3. Build the game, remove any unnecessary files, and compress the folder into a zip archive:
+   ```sh
+   $ npm run clean
+   $ npm run build
+   $ rm build/service-worker.js
+   $ zip -r fortify.zip build
+   ```
+4. Don't forget to clean up the project directory after the upload succeeds:
+   ```sh
+   $ rm fortify.zip
+   ```
 
 ## Contributors
 

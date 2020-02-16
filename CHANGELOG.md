@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/remarkablegames/fortify/compare/v0.4.0...v0.5.0) (2020-02-16)
+
+
+### Features
+
+* **public:** add favicon and other icons ([9d60e24](https://github.com/remarkablegames/fortify/commit/9d60e24))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/remarkablegames/fortify/compare/v0.3.0...v0.4.0) (2020-01-09)
 

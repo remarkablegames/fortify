@@ -13,7 +13,7 @@ const config = {
   width: 600,
   height: 800,
   title: 'Fortify',
-  url: process.env.HOMEPAGE,
+  url: 'https://b.remarkabl.org/fortify',
   version: process.env.VERSION,
   scene: [Boot, Intro, Lose, Main, Win],
   physics: {

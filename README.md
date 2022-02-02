@@ -12,7 +12,10 @@ This game was made during the [Global Game Jam 2019 (GGJ)](https://globalgamejam
 
 This project was bootstrapped with [`phaser-template`](https://github.com/remarkablegames/phaser-template) and hosted on [remarkablegames](https://remarkablegames.org/). To learn more, read the following [blog post](https://remarkablegames.org/posts/fortify/).
 
-<kbd>[Play Game](https://b.remarkabl.org/fortify)</kbd>
+Play this game on:
+
+- [remarkablegames](https://b.remarkabl.org/fortify)
+- [Newgrounds](https://www.newgrounds.com/portal/view/748296)
 
 ## Prerequisites
 

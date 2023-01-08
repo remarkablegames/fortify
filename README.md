@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/remarkablegames/fortify/master/src/assets/title.png" alt="Fortify">
 </p>
 
-[Fortify](https://b.remarkabl.org/fortify) is a puzzle game where your objective is to defend teddy :bear:
+[Fortify](https://b.remarkabl.org/fortify) is a puzzle game where your objective is to protect teddy :teddy_bear:
 
 This game was made during the [Global Game Jam 2019 (GGJ)](https://globalgamejam.org/news/theme-global-game-jam-2019-%E2%80%A6). The theme of the jam was:
 

@@ -27,13 +27,13 @@ Play this game on:
 Clone repository:
 
 ```sh
-$ git clone https://github.com/remarkablegames/fortify.git
+git clone https://github.com/remarkablegames/fortify.git
 ```
 
 Install dependencies:
 
 ```sh
-$ npm install
+npm install
 ```
 
 ## Available Scripts
@@ -77,14 +77,14 @@ If you're uploading the game to a site, make sure to do the following:
 2. _Optional_: remove GitHub Corners from `public/index.html` and `src/index.css`.
 3. Build the game, remove any unnecessary files, and compress the folder into a zip archive:
    ```sh
-   $ npm run clean
-   $ npm run build
-   $ rm build/service-worker.js
-   $ zip -r fortify.zip build
+   npm run clean
+   npm run build
+   rm build/service-worker.js
+   zip -r fortify.zip build
    ```
 4. Don't forget to clean up the project directory after the upload succeeds:
    ```sh
-   $ rm fortify.zip
+   rm fortify.zip
    ```
 
 ## Contributors
